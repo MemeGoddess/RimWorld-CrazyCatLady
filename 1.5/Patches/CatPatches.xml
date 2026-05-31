@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>i
+	<Operation Class="PatchOperationInsert">
+		<xpath>Defs/ThinkTreeDef[defName="MentalStateNonCritical"]/thinkRoot/subNodes/li/states/li[text()="Wander_Sad"]</xpath>
+		<value>
+			<li>TD_Wander_FollowCat</li>
+		</value>
+	</Operation>
+
+</Patch>
