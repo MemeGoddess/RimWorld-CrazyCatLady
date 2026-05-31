@@ -25,7 +25,8 @@ namespace Crazy_Cat_Lady
 
 	public class JobGiver_WanderCat : JobGiver_Wander
 	{
-		public override IntVec3 GetExactWanderDest(Pawn pawn)
+
+		protected override IntVec3 GetExactWanderDest(Pawn pawn)
 		{
 			IEnumerable<Thing> cats = pawn.Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer)
 				.Where(CatIdentifier.IsCat).Cast<Thing>();
@@ -37,7 +38,7 @@ namespace Crazy_Cat_Lady
 			return cat.Position;
 		}
 
-		public override IntVec3 GetWanderRoot(Pawn pawn)
+		protected override IntVec3 GetWanderRoot(Pawn pawn)
 		{
 			throw new NotImplementedException();
 		}

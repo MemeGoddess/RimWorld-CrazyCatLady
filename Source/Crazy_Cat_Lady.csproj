@@ -21,7 +21,20 @@
         <DebugType>Embedded</DebugType>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4633" />
+        <PackageReference Include="Krafs.Rimworld.Ref"
+                    Version="1.6.4633"
+                    ExcludeAssets="compile"
+                    GeneratePathProperty="true" />
         <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(PkgKrafs_Rimworld_Ref)\ref\net472\Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>$(PkgKrafs_Rimworld_Ref)\ref\net472\Assembly-CSharp-firstpass.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
     </ItemGroup>
 </Project>
