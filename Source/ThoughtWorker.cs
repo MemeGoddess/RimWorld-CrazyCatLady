@@ -49,7 +49,7 @@ namespace Crazy_Cat_Lady
 	}
 	public class ThoughtWorker_CrazyCatLady : ThoughtWorker
 	{
-		public override ThoughtState CurrentStateInternal(Pawn pawn)
+		protected override ThoughtState CurrentStateInternal(Pawn pawn)
 		{
 			int catCount = pawn.Map?.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer)
 				.Count(CatIdentifier.IsCat) ?? -1;
