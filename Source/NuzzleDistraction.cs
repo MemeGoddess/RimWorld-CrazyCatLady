@@ -15,15 +15,17 @@ namespace Crazy_Cat_Lady
 		//private void AddNuzzledThought(Pawn initiator, Pawn recipient)
 		public static void Postfix(Pawn initiator, Pawn recipient)
 		{
-			if(initiator.IsCat())
+			if (initiator.IsCat() && recipient?.mindState?.mentalStateHandler != null)
+			{
 				recipient.mindState.mentalStateHandler.TryStartMentalState(CatDefOf.TD_Wander_FollowCat, transitionSilently: true);
+			}
 		}
 	}
 
 
 	public class JobGiver_WanderCat : JobGiver_Wander
 	{
-		protected override IntVec3 GetExactWanderDest(Pawn pawn)
+		public override IntVec3 GetExactWanderDest(Pawn pawn)
 		{
 			IEnumerable<Thing> cats = pawn.Map.mapPawns.SpawnedPawnsInFaction(Faction.OfPlayer)
 				.Where(CatIdentifier.IsCat).Cast<Thing>();
@@ -35,7 +37,7 @@ namespace Crazy_Cat_Lady
 			return cat.Position;
 		}
 
-		protected override IntVec3 GetWanderRoot(Pawn pawn)
+		public override IntVec3 GetWanderRoot(Pawn pawn)
 		{
 			throw new NotImplementedException();
 		}
@@ -64,7 +66,7 @@ namespace Crazy_Cat_Lady
 			{
 				return false;
 			}
-			return pawn.story.traits.HasTrait(CatDefOf.TD_CrazyCatLady);
+			return pawn.story?.traits?.HasTrait(CatDefOf.TD_CrazyCatLady) == true;
 		}
 	}
 }
