@@ -36,5 +36,9 @@
             <HintPath>$(PkgKrafs_Rimworld_Ref)\ref\net472\Assembly-CSharp-firstpass.dll</HintPath>
             <Private>false</Private>
         </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>$(PkgKrafs_Rimworld_Ref)\ref\net472\UnityEngine.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
     </ItemGroup>
 </Project>
