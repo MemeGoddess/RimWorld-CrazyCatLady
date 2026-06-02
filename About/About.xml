@@ -21,4 +21,8 @@
 			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
 		</li>
 	</modDependencies>
+	<incompatibleWith>
+		<li>Uuugggg.CrazyCatLady</li>
+		<li>Sneaks.CrazyCatLady</li>
+	</incompatibleWith>
 </ModMetaData>
