@@ -1,44 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <OutputType>Library</OutputType>
         <AllowedReferenceRelatedFileExtensions>None</AllowedReferenceRelatedFileExtensions>
         <LangVersion>latest</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <Version>1.7</Version>
+    	<GenerateDependencyFile>false</GenerateDependencyFile>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <OutputPath>..\1.6\Assemblies\</OutputPath>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <OutputPath>..\$(Version)\Assemblies\</OutputPath>
         <DefineConstants>TRACE;DEBUG;NETFRAMEWORK;NET48;</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <DebugType>none</DebugType>
-        <OutputPath>..\1.6\Assemblies\</OutputPath>
-        <DefineConstants></DefineConstants>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <DebugSymbols>false</DebugSymbols>
         <DebugType>Embedded</DebugType>
+        <OutputPath>..\$(Version)\Assemblies\</OutputPath>
+        <DebugSymbols>false</DebugSymbols>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Krafs.Rimworld.Ref"
-                    Version="1.6.4633"
-                    ExcludeAssets="compile"
-                    GeneratePathProperty="true" />
+        <PackageReference Include="Krafs.Rimworld.Ref" Version="$(Version).*-*" />
         <PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
-    </ItemGroup>
-    <ItemGroup>
-        <Reference Include="Assembly-CSharp">
-            <HintPath>$(PkgKrafs_Rimworld_Ref)\ref\net472\Assembly-CSharp.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="Assembly-CSharp-firstpass">
-            <HintPath>$(PkgKrafs_Rimworld_Ref)\ref\net472\Assembly-CSharp-firstpass.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="Assembly-CSharp-firstpass">
-            <HintPath>$(PkgKrafs_Rimworld_Ref)\ref\net472\UnityEngine.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
     </ItemGroup>
 </Project>
