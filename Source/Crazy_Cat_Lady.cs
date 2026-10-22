@@ -23,7 +23,7 @@ namespace Crazy_Cat_Lady
 
 			Harmony harmony = new Harmony("Uuugggg.rimworld.Crazy_Cat_Lady.main");
 
-			harmony.PatchAll();
+			harmony.PatchAll(Assembly.GetExecutingAssembly());
 		}
 	}
 }
